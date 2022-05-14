@@ -1,0 +1,7 @@
+extends ../template/template.pug
+include ../components/frame.pug
+
+block body
+    each stray in strays
+        +frame(stray)
+        br
