@@ -6,7 +6,7 @@ block body
     +topnav(1)
     .gallery
         each stray, i in strays
-            +frame(stray, images[i])
+            +frame(stray)
         else
             h1 No strays match the current criteria!
         a(href="/strays/add").add add
