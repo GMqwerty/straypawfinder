@@ -5,8 +5,8 @@ block body
     +topnav()
     form(method='post' enctype='multipart/form-data')
         input(type='text' name='name' placeholder='Name:' required)
-        input(type='number' name='age' placeholder='Age:' min=1 value=1 required)
-        input(type='file' name='photo' multiple max=5 required)
+        input(type='number' name='age' placeholder='Age:' value=1 required)
+        input(type='file' name='photo' max=5 required)
         textarea(name='desc' placeholder='A short description:' required)
         input(type='submit')
 
