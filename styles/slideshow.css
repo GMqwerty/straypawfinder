@@ -11,8 +11,6 @@ section.wrapper {
 	flex-direction: column;
 	justify-content: center;
 	overflow: hidden;
-  min-height: 400px;
-  max-height: 400px;
 	position: relative;
 }
 
@@ -24,7 +22,7 @@ section.wrapper {
 
 img {
 	height: auto;
-	width: auto;
+	width: 100%;
 	transition: all 1s;
 }
 
