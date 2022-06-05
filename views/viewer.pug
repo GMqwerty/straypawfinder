@@ -5,10 +5,10 @@ include ../components/topnav.pug
 block body
     +topnav()
     .viewer
-        h1= stray.name
+        h1.title= stray.name
         +slideshow(photos)
         p Description:
-        h1= stray.desc
+        h1.desc= stray.desc
         h3= 'Age: ' + stray.age
 
 append head
