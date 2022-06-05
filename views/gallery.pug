@@ -5,10 +5,10 @@ include ../components/topnav.pug
 block body
     +topnav(1)
     .gallery
-        each stray, i in strays
+        each stray in strays
             +frame(stray)
         else
-            h1 No strays match the current criteria!
+            h1 No strays found
         a(href="/strays/add").add add
 
 block head
