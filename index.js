@@ -6,7 +6,7 @@ const db = new sqlite.Database('./db/db.sqlite');
 const multer = require('multer');
 const upload = multer();
 
-app.listen(80)
+app.listen(process.env.PORT || 80)
 
 app.use('/styles', express.static(__dirname + '/styles'));
 app.use('/images', express.static(__dirname + '/images'))
