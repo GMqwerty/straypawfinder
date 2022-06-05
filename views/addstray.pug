@@ -1,15 +1,15 @@
 extends ../template/template.pug
+include ../components/topnav.pug
 
 block body
+    +topnav()
     form(method='post' enctype='multipart/form-data')
         input(type='text' name='name' placeholder='Name:' required)
-        br
         input(type='number' name='age' placeholder='Age:' min=1 value=1 required)
-        br
         input(type='file' name='photo' multiple max=5 required)
-        br
         textarea(name='desc' placeholder='A short description:' required)
-        br
         input(type='submit')
+
 block head
     link(rel='stylesheet' type="text/css" href='/styles/addstray.css')
+    link(rel='stylesheet' type="text/css" href='/styles/topnav.css')

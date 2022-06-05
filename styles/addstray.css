@@ -2,7 +2,29 @@ body {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-input, textarea{
+input, textarea, ::placeholder, ::-webkit-file-upload-button{
+    display: block;
+    height: 50px;
+    width: 220px;
     margin-left: 10px;
     margin-top: 10px;
+    background-color: rgb(232, 46, 46);
+    border: none;
+    border-radius: 3px;
+    color: white;   
+    font-size: 23px;
+    text-align: left;
+}
+
+textarea {
+    height: 100px;
+    padding: 0;
+}
+
+input:first-of-type {
+    margin-top: 50px;
+}
+
+input[type='file'], ::-webkit-file-upload-button {
+    cursor: pointer;
 }
