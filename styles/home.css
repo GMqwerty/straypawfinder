@@ -1,0 +1,50 @@
+body {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.button {
+    margin-top: 100px;
+    margin-left: 70px;
+    display: block;
+    width: 300px;
+    height: 100px;
+    background: gray;
+    padding: 10px;
+    text-align: center;
+    border-radius: 25px;
+    color: initial;
+    font-weight: bold;
+    line-height: 100px;
+    text-decoration: none;
+    font-size: 40px;
+}
+
+.poster {
+    box-shadow: 10px -5px 18px #888888;
+    width: 45%;
+    float: right;
+    margin-right: 30px;
+    margin-bottom: 10px;
+}
+
+.desc {
+    margin: 10px;
+    font-size: 30px;
+    line-height: 40px;
+}
+
+@media only screen and (max-width: 780px) {
+    .button {
+        width: 200px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 25px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .poster {
+        width: 100%;
+        margin: 70px auto;
+    }
+}

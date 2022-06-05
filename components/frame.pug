@@ -1,4 +1,6 @@
-mixin frame(stray)
-    h1= stray.name
-    h2= stray.age
-    h2= stray.desc
+mixin frame(stray, photo)
+    a(href='/strays/' + stray.id).frame
+        div
+            img(src=photo.image alt=stray.name)
+            h1= stray.name
+            h3= stray.age

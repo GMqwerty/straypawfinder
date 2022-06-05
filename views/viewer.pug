@@ -1,0 +1,18 @@
+extends ../template/template.pug
+include ../components/slideshow.pug
+include ../components/topnav.pug
+
+block body
+    +topnav()
+    .viewer
+        h1= stray.name
+        +slideshow(photos)
+        p Description:
+        h1= stray.desc
+        h3= 'Age: ' + stray.age
+
+append head
+    link(rel="stylesheet" href="/styles/viewer.css")
+    link(rel="stylesheet" href="/styles/slideshow.css")
+    link(rel='stylesheet' type="text/css" href='/styles/topnav.css')
+    meta(property='og:title' content=stray.name)

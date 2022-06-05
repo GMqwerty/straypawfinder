@@ -1,0 +1,17 @@
+extends ../template/template.pug
+include ../components/frame.pug
+include ../components/topnav.pug
+
+block body
+    +topnav(1)
+    .gallery
+        each stray, i in strays
+            +frame(stray, images[i])
+        else
+            h1 No strays match the current criteria!
+        a(href="/strays/add").add add
+
+block head
+    link(rel="stylesheet" type="text/css" href="/styles/gallery.css")
+    link(rel='stylesheet' type="text/css" href='/styles/topnav.css')
+    link(rel='stylesheet' type="text/css" href='/styles/frame.css')
