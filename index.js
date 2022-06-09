@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const pug = require('pug')
-const {Client} = require('/app/db/db.js');
+const {client} = require('/app/db/db.js');
 const multer = require('multer');
 const upload = multer();
 
@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/strays', (req, res) => {
-    Client.query('SELECT * FROM strays', (err, res) => {
+    client.query('SELECT * FROM strays', (err, res) => {
         if (err) throw err;
         console.log(res)
         res.render('gallery', {strays: res.rows})
