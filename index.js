@@ -28,7 +28,7 @@ app.get('/strays/add', (req, res) => {
 });
 
 app.get('/strays/:category', (req, res) => {
-    client.query('SELECT * FROM strays WHERE category = $1', req.params.category,(err, data) => {
+    client.query('SELECT * FROM strays WHERE category = $1', [req.params.category],(err, data) => {
         if (err) throw err;
         res.render('gallery', {strays: data.rows})
     })
