@@ -27,6 +27,13 @@ app.get('/strays/add', (req, res) => {
     res.render('addstray')
 });
 
+app.get('/stray/:id', (req, res) => {
+    client.query('SELECT * FROM strays WHERE id = $1', [req.params.id], (err, data) => {
+        if (err) throw err;
+        res.render('viewer', {stray: data.rows[0]})
+    });
+});
+
 app.get('/strays/:category', (req, res) => {
     client.query('SELECT * FROM strays WHERE category = $1', [req.params.category],(err, data) => {
         if (err) throw err;
@@ -44,13 +51,6 @@ app.post('/strays/add', upload.single('photo'), (req, res) => {
 
     client.query('INSERT INTO STRAYS VALUES($1,$2,$3,$4,$5,$6,$7)', [id, name, age, desc, `data:${req.file.mimetype};base64,${Buffer.from(req.file.buffer).toString('base64')}`, category, contact], (err) => {
         if (err) throw err;
-        res.redirect(`/strays/${id}`);
+        res.redirect(`/stray/${id}`);
     })
 })
-
-app.get('/strays/:id', (req, res) => {
-    client.query('SELECT * FROM strays WHERE id = $1', [req.params.id], (err, data) => {
-        if (err) throw err;
-        res.render('viewer', {stray: data.rows[0]})
-    });
-});
