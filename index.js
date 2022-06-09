@@ -34,15 +34,15 @@ app.post('/strays/add', upload.single('photo'), (req, res) => {
     const desc = req.body.desc;
     const id = require('crypto').randomUUID();
 
-    db.run('INSERT INTO STRAYS VALUES(?,?,?,?, ?)', [id, name, age, desc, `data:${req.file.mimetype};base64,${Buffer.from(req.file.buffer).toString('base64')}`], function(err) {
+    client.query('INSERT INTO STRAYS VALUES($1,$2,$3,$4,$5)', [id, name, age, desc, `data:${req.file.mimetype};base64,${Buffer.from(req.file.buffer).toString('base64')}`], (err) => {
         if (err) throw err;
         res.redirect(`/strays/${id}`);
     })
 })
 
 app.get('/strays/:id', (req, res) => {
-    db.all('SELECT * FROM strays WHERE id = ?', [req.params.id], (err, rows) => {
+    db.all('SELECT * FROM strays WHERE id = $1', [req.params.id], (err, data) => {
         if (err) throw err;
-        res.render('viewer', {stray: rows[0]})
+        res.render('viewer', {stray: data.rows[0]})
     });
 });
