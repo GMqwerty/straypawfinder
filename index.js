@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const pug = require('pug')
-const {client} = require('/app/db/db.js');
+//const {client} = require('/app/db/db.js');
 const multer = require('multer');
 const upload = multer();
 
@@ -27,13 +27,22 @@ app.get('/strays/add', (req, res) => {
     res.render('addstray')
 });
 
+app.get('/strays/:category', (req, res) => {
+    client.query('SELECT * FROM strays WHERE category = $1', req.params.category,(err, data) => {
+        if (err) throw err;
+        res.render('gallery', {strays: data.rows})
+    })
+});
+
 app.post('/strays/add', upload.single('photo'), (req, res) => {
     const name = req.body.name;
     const age = req.body.age;
     const desc = req.body.desc;
+    const category = req.body.category
+    const contact = req.body.contact
     const id = require('crypto').randomUUID();
 
-    client.query('INSERT INTO STRAYS VALUES($1,$2,$3,$4,$5)', [id, name, age, desc, `data:${req.file.mimetype};base64,${Buffer.from(req.file.buffer).toString('base64')}`], (err) => {
+    client.query('INSERT INTO STRAYS VALUES($1,$2,$3,$4,$5,$6,$7)', [id, name, age, desc, `data:${req.file.mimetype};base64,${Buffer.from(req.file.buffer).toString('base64')}`, category, contact], (err) => {
         if (err) throw err;
         res.redirect(`/strays/${id}`);
     })

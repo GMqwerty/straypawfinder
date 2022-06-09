@@ -8,6 +8,11 @@ block body
         input(type='number' name='age' placeholder='Age:' value=1 required)
         input(type='file' name='photo' max=5 required)
         textarea(name='desc' placeholder='A short description:' required)
+        select(name='category' required)
+            option(value='adoption') For Adoption 
+            option(value='missing') Missing
+            option(value='found') Found
+        input(type='text' name='contact' placeholder='Contact Info:' required)
         input(type='submit')
 
 block head

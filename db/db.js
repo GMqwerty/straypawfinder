@@ -9,6 +9,6 @@ const client = new Client({
 
 client.connect();
 
-client.query('CREATE TABLE IF NOT EXISTS"strays" ("id" TEXT NOT NULL,"name" TEXT NOT NULL, "age" INTEGER NOT NULL,"desc" TEXT NOT NULL, "image" TEXT NOT NULL, PRIMARY KEY("id"))')
+client.query('CREATE TABLE IF NOT EXISTS"strays" ("id" TEXT NOT NULL,"name" TEXT NOT NULL, "age" INTEGER NOT NULL,"desc" TEXT NOT NULL, "image" TEXT NOT NULL, "category" TEXT NOT NULL, "contact" TEXT NOT NULL, PRIMARY KEY("id"))')
 
 module.exports.client = client
