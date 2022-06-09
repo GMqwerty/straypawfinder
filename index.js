@@ -2,7 +2,7 @@ const express = require('express');
 console.log(process.env.DATABASE_URL)
 const app = express();
 const pug = require('pug')
-const db = require('db/db.js');
+const db = require('/db/db.js');
 const multer = require('multer');
 const upload = multer();
 
