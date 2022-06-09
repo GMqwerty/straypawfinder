@@ -1,8 +1,8 @@
 const express = require('express');
+console.log(process.env.DATABASE_URL)
 const app = express();
 const pug = require('pug')
-const sqlite = require('sqlite3').verbose();
-const db = new sqlite.Database('./db/db.sqlite');
+const db = require('/db/db.js');
 const multer = require('multer');
 const upload = multer();
 
@@ -18,9 +18,9 @@ app.get('/', (req, res) => {
 });
 
 app.get('/strays', (req, res) => {
-    db.all('SELECT * FROM strays', (err, rows) => {
+    db.query('SELECT * FROM strays', (err, res) => {
         if (err) throw err;
-        res.render('gallery', {strays: rows})
+        res.render('gallery', {strays: res.rows})
     });
 });
 
