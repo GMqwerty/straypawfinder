@@ -19,7 +19,6 @@ app.get('/', (req, res) => {
 app.get('/strays', (req, res) => {
     client.query('SELECT * FROM strays', (err, data) => {
         if (err) throw err;
-        console.log(res)
         res.render('gallery', {strays: data.rows})
     });
 });
