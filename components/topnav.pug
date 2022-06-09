@@ -1,4 +1,10 @@
 mixin topnav(active)
     .topnav
         a(href='/' class=active===0 ? 'active':'') Stray Paw Finder
-        a(href='/strays' class=active===1 ? 'active':'') Strays List
+        .dropdown
+            button().dropbtn Strays
+            .dropdown-content
+                a(href='/strays/adoption') For Adoption
+                a(href='/strays/missing') Missing
+                a(href='/strays/found') Found
+                a(href='/strays') All
