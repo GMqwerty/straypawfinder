@@ -41,7 +41,7 @@ app.post('/strays/add', upload.single('photo'), (req, res) => {
 })
 
 app.get('/strays/:id', (req, res) => {
-    db.all('SELECT * FROM strays WHERE id = $1', [req.params.id], (err, data) => {
+    client.query('SELECT * FROM strays WHERE id = $1', [req.params.id], (err, data) => {
         if (err) throw err;
         res.render('viewer', {stray: data.rows[0]})
     });
