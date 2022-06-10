@@ -3,7 +3,7 @@ include ../components/frame.pug
 include ../components/topnav.pug
 
 block body
-    +topnav(1)
+    +topnav()
     .gallery
         each stray in strays
             +frame(stray)

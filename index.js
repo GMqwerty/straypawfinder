@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const pug = require('pug')
-const {client} = require('/app/db/db.js');
+/onst {client} = require('/app/db/db.js');
 const multer = require('multer');
 const upload = multer();
 
@@ -14,6 +14,10 @@ app.set('view engine', 'pug')
 
 app.get('/', (req, res) => {
     res.render('home');
+});
+
+app.get('/socials', (req, res) => {
+    res.render('socials')
 });
 
 app.get('/strays', (req, res) => {

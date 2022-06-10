@@ -1,6 +1,6 @@
-mixin topnav(active)
+mixin topnav()
     .topnav
-        a(href='/' class=active===0 ? 'active':'') Stray Paw Finder
+        a(href='/').active Stray Paw Finder
         .dropdown
             button().dropbtn Strays
             .dropdown-content
@@ -8,3 +8,4 @@ mixin topnav(active)
                 a(href='/strays/missing') Missing
                 a(href='/strays/found') Found
                 a(href='/strays') All
+        a(href='/socials') Socials
