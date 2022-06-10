@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const pug = require('pug')
-/onst {client} = require('/app/db/db.js');
+const {client} = require('/app/db/db.js');
 const multer = require('multer');
 const upload = multer();
 
